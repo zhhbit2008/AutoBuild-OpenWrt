@@ -59,27 +59,15 @@
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    #- name: Import external feeds - enzok8
-    #working-directory: ./openwrt
-     # run:｜
-      #  git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory:./openwrt
-       # git clone "your_github_link" package/"your_folder_name"          
-   # - name: Import external feeds - small
-    #  working-directory: ./openwrt
-     # run:｜
-      #  git clone https://github.com/kenzok8/small.git package/lienolectory:./openwr
-      
+     
     - name：Import external feeds - passwall
       working-directory：./openwrt
-      run：|
+      run：|      
           git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienolectory:./openwrt
           git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory:./openwrt
           git clone https://github.com/kenzok8/small.git package/lienolectory:./openwrt
 
-   #- name: Import external feeds - JerryKuKu Argo
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
+
 
     - name：Configuration Customization - Build_x86_64
       env：
