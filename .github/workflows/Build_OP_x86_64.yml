@@ -11,11 +11,10 @@ name: Build_x86_64
 on: 
   repository_dispatch：
   workflow_dispatch：
-
 jobs:
   build:  
     runs-on: ubuntu-latest
-    
+   
     steps:
       - name: Checkout
         uses: actions/checkout@master
