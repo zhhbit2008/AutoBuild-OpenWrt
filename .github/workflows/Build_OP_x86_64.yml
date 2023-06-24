@@ -13,16 +13,17 @@ on:
   workflow_dispatch：
 
 
-  jobs:
+jobs:
     build: 
     runs-on: ubuntu-latest
-  
-  steps:
+    
+    steps:
     - name: Checkout
       uses: actions/checkout@master
 
     - name: Initialization environment
-  env:
+    
+    env:
         DEBIAN_FRONTEND:noninteractive
         run:|
         set +e
