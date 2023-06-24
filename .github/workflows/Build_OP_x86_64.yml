@@ -70,7 +70,8 @@
      # run:｜
       #  git clone https://github.com/kenzok8/small.git package/lienolectory:./openwrt
     
-    -  name: Import external feeds  passwall
+      
+    -name：Import external feeds
       working-directory：./openwrt
       run：|
           git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienolectory:./openwrt
