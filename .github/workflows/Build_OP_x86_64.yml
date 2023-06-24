@@ -65,7 +65,7 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    - name: Import external feeds - kenzok8
+    - name: Import external feeds - enzok8
       working-dir
       run: |
         git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory: ./openwrt
