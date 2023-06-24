@@ -68,13 +68,13 @@ jobs:
     - name: Import external feeds - kenzok8
       working-dir
       run: |
-        git clone https://github.com/kenzok8/openwrt-packages package/lienolectory: ./openwrt
+        git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory: ./openwrt
         git clone "your_github_link" package/"your_folder_name"      
         
     - name: Import external feeds - small
       working-dir
       run: |
-        git clone https://github.com/kenzok8/small package/lienolectory: ./openwrt
+        git clone https://github.com/kenzok8/small.git package/lienolectory: ./openwrt
          
     - name: Import external feeds - passwall
       working-dir
