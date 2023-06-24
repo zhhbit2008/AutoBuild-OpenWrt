@@ -14,16 +14,16 @@ on:
 
 jobs:
   build:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
   
-    steps：
-    - name： Checkout
-      uses：actions/checkout@master
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
 
-    - name：Initialization environment
-      env：
+    - name: Initialization environment
+    env:
         DEBIAN_FRONTEND:noninteractive
-      run：|
+        run:|
         set +e
         docker rmi `docker images -q`
         echo "Deleting files, please wait ..."
@@ -49,7 +49,7 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
 
-    - name：Clone source code
+    - name: Clone source code
       env:：
         REPO_URL： https://github.com/coolsnowwolf/lede
         REPO_BRANCH： master
