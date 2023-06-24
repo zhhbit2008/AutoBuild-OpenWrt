@@ -63,16 +63,14 @@
     #working-directory: ./openwrt
      # run:｜
       #  git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory:./openwrt
-       # git clone "your_github_link" package/"your_folder_name"      
-        
+       # git clone "your_github_link" package/"your_folder_name"          
    # - name: Import external feeds - small
     #  working-directory: ./openwrt
      # run:｜
-      #  git clone https://github.com/kenzok8/small.git package/lienolectory:./openwrt
-    
+      #  git clone https://github.com/kenzok8/small.git package/lienolectory:./openwr
       
     - name：Import external feeds - passwall
-          working-directory：./openwrt
+      working-directory：./openwrt
       run：|
           git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienolectory:./openwrt
           git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory:./openwrt
