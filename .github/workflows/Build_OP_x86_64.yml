@@ -16,14 +16,14 @@ jobs:
   build:
     runs-on:ubuntu-latest
   
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
+    steps：
+    - name： Checkout
+      uses：actions/checkout@master
 
-    - name: Initialization environment
-      env:
+    - name：Initialization environment
+      env：
         DEBIAN_FRONTEND: noninteractive
-      run: |
+      run：|
         set +e
         docker rmi `docker images -q`
         echo "Deleting files, please wait ..."
@@ -49,18 +49,18 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
 
-    - name: Clone source code
-      env: 
-        REPO_URL: https://github.com/coolsnowwolf/lede
-        REPO_BRANCH: master
-      run: |
+    - name：Clone source code
+      env:：
+        REPO_URL： https://github.com/coolsnowwolf/lede
+        REPO_BRANCH： master
+      run：|
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
-    - name: Update & Install feeds
-      working-directory: ./openwrt
-      run: |
+    - name：Update & Install feeds
+      working-directory：./openwrt
+      run：|
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
@@ -76,9 +76,9 @@ jobs:
      # run:｜
       #  git clone https://github.com/kenzok8/small.git package/lienolectory:./openwrt
          
-    - name: Import external feeds - passwall
-      working-directory: ./openwrt
-      run: |
+    - name：Import external feeds - passwall
+      working-directory：./openwrt
+      run：|
         git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienolectory:./openwrt
         git clone https://github.com/kenzok8/openwrt-packages.git package/lienolectory:./openwrt
         git clone https://github.com/kenzok8/small.git package/lienolectory:./openwrt
@@ -88,29 +88,29 @@ jobs:
     #  run: |
     #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
 
-    - name: Configuration Customization - Build_x86_64
-      env:
-        CONFIG_FILE: 'x86_64.config'
-      run: |
+    - name：Configuration Customization - Build_x86_64
+      env：
+        CONFIG_FILE：'x86_64.config'
+      run：|
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
-    - name: Download package
-      working-directory: ./openwrt
-      run: |
+    - name：Download package
+      working-directory：./openwrt
+      run：|
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Build firmware
-      working-directory: ./openwrt
-      run: |
+    - name：Build firmware
+      working-directory：./openwrt
+      run：|
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
 
-    - name : Upload artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: OpenWrt
-        path: openwrt/bin
+    - name：Upload artifact
+      uses：actions/upload-artifact@master
+      with：
+        name：OpenWrt
+        path：openwrt/bin
